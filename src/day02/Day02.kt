@@ -1,3 +1,7 @@
+package day02
+
+import readInput
+
 const val OPPONENT_ROCK = "A"
 const val OPPONENT_PAPER = "B"
 const val OPPONENT_SCISSOR = "C"

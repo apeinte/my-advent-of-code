@@ -1,3 +1,7 @@
+package day03
+
+import readInput
+
 const val ITEMS_PATTERN = "a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z"
 fun main() {
     fun getAlphabetParsed(): List<String> {
@@ -13,7 +17,7 @@ fun main() {
     fun partOne(input: List<String>): Int {
         var result = 0
         var numberOfAnomaly = 0
-        // step 1 : loop the main list
+        // step 1 : loop the day03.main list
         input.forEach { rucksack ->
             // step 2 : split the list in two list
             val listOfItems = rucksack.split("")

@@ -1,4 +1,5 @@
-
+package day01
+import readInput
 import kotlin.math.max
 
 fun main() {
