@@ -1,3 +1,4 @@
+name: Template for a day
 on:
   workflow_dispatch:
     inputs:
@@ -28,7 +29,7 @@ jobs:
           git config --global user.name ${{ secrets.GH_NAME }}
           git add $tmpPathInput 
           git add $tmpPathFile
-          git commit -a -m "feat(Day${nbDay}): Add input" --author="apeinte"
+          git commit -a -m "feat(Day${nbDay}): add files" --author="apeinte"
           git push origin main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

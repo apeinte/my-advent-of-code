@@ -1,3 +1,4 @@
+name: Auto day template
 on:
   workflow_dispatch:
   schedule:
