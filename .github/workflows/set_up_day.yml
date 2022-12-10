@@ -8,15 +8,12 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - name: 🛎 Checkout
-        uses: actions/checkout@v3
-        with:
-            fetch-depth: 0
+#      - name: 🛎 Checkout
+#        uses: actions/checkout@v3
+#        with:
+#            fetch-depth: 0
       - name: Check if last days is existing
         run: |
           echo "date::$(date +'%Y%m%d%H%M')"
           set nbDay=echo "date::$(date +'%d')"
-          cat nbDay
-          
-      
-  
+          echo "${nbDay}"
