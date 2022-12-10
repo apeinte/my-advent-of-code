@@ -1,0 +1,36 @@
+on:
+  workflow_dispatch:
+    inputs:
+      nbDayProvided:
+        description: Prepare day number
+        required: true
+        type: number
+jobs:
+  sync_day:
+    name: Prepare for the day you choose
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: 🛎 Checkout
+        uses: actions/checkout@v3
+        with:
+            fetch-depth: 0
+      - name: Get the new days and save it to git
+        id: nbDay
+        run: |
+          nbDay=${{ inputs.nbDayProvided }}
+          tmpPathInput=src/day${nbDay}/Day${nbDay}.txt
+          tmpPathFile=src/day${nbDay}/Day${nbDay}.kt
+          mkdir -p src/day${nbDay}
+          cp day_template.kt $tmpPathFile
+          cp day_inputs_template.txt $tmpPathInput
+          git config --global user.email ${{ secrets.GH_EMAIL }}
+          git config --global user.name ${{ secrets.GH_NAME }}
+          git add $tmpPathInput 
+          git add $tmpPathFile
+          git commit -a -m "feat(Day${nbDay}): Add input" --author="apeinte"
+          git push origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+
