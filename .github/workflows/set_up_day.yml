@@ -8,12 +8,23 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-#      - name: 🛎 Checkout
-#        uses: actions/checkout@v3
-#        with:
-#            fetch-depth: 0
-      - name: Check if last days is existing
+      - name: 🛎 Checkout
+        uses: actions/checkout@v3
+        with:
+            fetch-depth: 0
+      - name: Get the new days and save it to git
+        id: nbDay
         run: |
-          echo "date::$(date +'%Y%m%d%H%M')"
-          set nbDay=echo "date::$(date +'%d')"
-          echo "${nbDay}"
+          nbDay=$(date +'%d')
+          git checkout -v -b feat/sync_day${nbDay} origin/main
+          ls
+          tmpPath=src/day${nbDay}/Day${nbDay}.txt
+          mkdir -p src/day${nbDay}
+          curl https://adventofcode.com/2022/day/${nbDay}/input>${tmpPath}
+          git -v add $tmpPath
+          git -v push origin feat/sync_day${nbDay}
+          gh pr create -B main -H feat/sync_day${nbDay} --title 'Sync the new day!' --body "It's time to get the new day of the Advent Of Code!"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+          
