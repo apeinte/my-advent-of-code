@@ -16,15 +16,18 @@ jobs:
         id: nbDay
         run: |
           nbDay=$(date +'%d')
-          git checkout -v -b feat/sync_day${nbDay} origin/main
+          git checkout -b feat/sync_day${nbDay} origin/main
           ls
           tmpPath=src/day${nbDay}/Day${nbDay}.txt
           mkdir -p src/day${nbDay}
           curl https://adventofcode.com/2022/day/${nbDay}/input>${tmpPath}
-          git -v add $tmpPath
-          git -v push origin feat/sync_day${nbDay}
+          git config --global user.email "a.peinte@gmail.com"
+          git config --global user.name "apeinte"
+          git add $tmpPath -v
+          git commit -a -m "feat(Day${nbDay}): Add input" --author="apeinte"
+          git push origin feat/sync_day${nbDay}
           gh pr create -B main -H feat/sync_day${nbDay} --title 'Sync the new day!' --body "It's time to get the new day of the Advent Of Code!"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-          
+
