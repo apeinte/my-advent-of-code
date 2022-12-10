@@ -8,12 +8,21 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-#      - name: 🛎 Checkout
-#        uses: actions/checkout@v3
-#        with:
-#            fetch-depth: 0
+      - name: 🛎 Checkout
+        uses: actions/checkout@v3
+        with:
+            fetch-depth: 0
       - name: Check if last days is existing
         run: |
-          echo "date::$(date +'%Y%m%d%H%M')"
-          set nbDay=echo "date::$(date +'%d')"
-          echo "${nbDay}"
+          nbDay=$(date +'%d')
+          ls
+          mkdir -p src/day${nbDay}
+          curl https://adventofcode.com/2022/day/${nbDay}/input>src/day${nbDay}/Day${nbDay}.txt
+      - name: create pul request
+        run: |
+          git checkout -b feat/sync_day${nbDay} origin/main
+          git push origin feat/sync_day${nbDay}
+          gh pr create -B main -H feat/sync_day${nbDay} --title 'Sync the new day!' --body "It's time to get the new day of the Advent Of Code!"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
