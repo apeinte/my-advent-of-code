@@ -22,7 +22,7 @@ jobs:
           nbDay=${{ inputs.nbDayProvided }}
           tmpPathInput=src/day${nbDay}/Day${nbDay}.txt
           tmpPathFile=src/day${nbDay}/Day${nbDay}.kt
-          tmpPathInputTest=src/day${nbDay}/Day${nbDay}_test.kt
+          tmpPathInputTest=src/day${nbDay}/Day${nbDay}_test.txt
           mkdir -p src/day${nbDay}
           cp day_template.kt $tmpPathFile
           cp day_inputs_template.txt $tmpPathInput

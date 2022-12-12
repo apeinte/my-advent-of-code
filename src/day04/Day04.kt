@@ -1,6 +1,10 @@
-const val RESULT_EXAMPLE_PART_ONE = 2
-const val RESULT_EXAMPLE_PART_TWO = 4
-const val VALUE_OF_THE_DAY = 4
+package day04
+
+import readDayInput
+
+private const val RESULT_EXAMPLE_PART_ONE = 2
+private const val RESULT_EXAMPLE_PART_TWO = 4
+private const val VALUE_OF_THE_DAY = 4
 
 fun main() {
 

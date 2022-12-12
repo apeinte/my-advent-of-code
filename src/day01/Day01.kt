@@ -1,6 +1,6 @@
 package day01
+
 import readDayInput
-import readInput
 import kotlin.math.max
 
 fun main() {

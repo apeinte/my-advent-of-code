@@ -1,7 +1,6 @@
 package day02
 
 import readDayInput
-import readInput
 
 const val OPPONENT_ROCK = "A"
 const val OPPONENT_PAPER = "B"
