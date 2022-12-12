@@ -14,23 +14,21 @@ jobs:
         with:
             fetch-depth: 0
       - name: Get the new days and save it to git
-        id: nbDay
         run: |
           nbDay=$(date +'%d')
-          git checkout -b feat/sync_day${nbDay} origin/main
-          ls
           tmpPathInput=src/day${nbDay}/Day${nbDay}.txt
           tmpPathFile=src/day${nbDay}/Day${nbDay}.kt
+          tmpPathInputTest=src/day${nbDay}/Day${nbDay}_test.kt
           mkdir -p src/day${nbDay}
           cp day_template.kt $tmpPathFile
           curl https://adventofcode.com/2022/day/${nbDay}/input>${tmpPathInput}
-          git config --global user.email "a.peinte@gmail.com"
-          git config --global user.name "apeinte"
+          git config --global user.email ${{ secrets.GH_EMAIL }}
+          git config --global user.name ${{ secrets.GH_NAME }}
           git add $tmpPathInput 
           git add $tmpPathFile
+          git add $tmpPathInputTest
           git commit -a -m "feat(Day${nbDay}): Add input" --author="apeinte"
-          git push origin feat/sync_day${nbDay}
-          gh pr create -B main -H feat/sync_day${nbDay} --title 'Sync the new day!' --body "It's time to get the new day of the Advent Of Code!"
+          git push origin main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
