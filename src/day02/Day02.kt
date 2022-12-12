@@ -1,5 +1,6 @@
 package day02
 
+import readDayInput
 import readInput
 
 const val OPPONENT_ROCK = "A"
@@ -102,7 +103,7 @@ fun main() {
         return result
     }
 
-    val parsedTournament = parseTournament(readInput("Day02"))
+    val parsedTournament = parseTournament(readDayInput(2))
     println(
         "What would your total score be if everything goes exactly according to your strategy guide?" +
             "\n${parts1(parsedTournament)}"

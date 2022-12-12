@@ -2,6 +2,21 @@ import java.io.File
 import java.math.BigInteger
 import java.security.MessageDigest
 
+fun readDayInput(numberOfTheDay: Int, isTest: Boolean = false): List<String> {
+
+    var fileName = if (numberOfTheDay < 10) {
+        "/day0$numberOfTheDay/Day0$numberOfTheDay"
+    } else {
+        "/day$numberOfTheDay/Day$numberOfTheDay"
+    }
+
+    if (isTest) {
+        fileName += "_test"
+    }
+
+    return readInput(fileName)
+}
+
 /**
  * Reads lines from the given input txt file.
  */

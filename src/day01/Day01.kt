@@ -1,4 +1,5 @@
 package day01
+import readDayInput
 import readInput
 import kotlin.math.max
 
@@ -41,7 +42,7 @@ fun main() {
         return topThreeCalories
     }
 
-    val input = readInput("Day01")
+    val input = readDayInput(1)
     val tabElves: MutableMap<Int, List<Int>> = parseInput(input)
     println("How many total Calories is that Elf carrying?\n${part1(tabElves)}")
     println("Find the top three Elves carrying the most Calories. How many Calories are those Elves carrying in total?\n${part2(3, tabElves)}")

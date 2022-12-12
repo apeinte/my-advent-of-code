@@ -1,5 +1,6 @@
 package day03
 
+import readDayInput
 import readInput
 
 const val ITEMS_PATTERN = "a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z"
@@ -80,14 +81,14 @@ fun main() {
         return result
     }
 
-    val inputRead = readInput("Day03")
+    val inputRead = readDayInput(3)
 
-    if (checkIfAlphabetIsCorrect() && partOne(readInput("Day03_test")) == 157) {
+    if (checkIfAlphabetIsCorrect() && partOne(readDayInput(3, true)) == 157) {
         // Test has been passed so we can get the result of part 1
         println("What is the sum of the priorities of those item types?\n${partOne(inputRead)}")
     }
 
-    if (checkIfAlphabetIsCorrect() && partTwo(readInput("day03_test")) == 70) {
+    if (checkIfAlphabetIsCorrect() && partTwo(readDayInput(3, true)) == 70) {
         // Test has been passed so we can get the result of part 2
         println("What is the sum of the priorities of those item types?|\n${partTwo(inputRead)}")
     }
