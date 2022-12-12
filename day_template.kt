@@ -1,23 +1,24 @@
-//TODO: Don't forget to fill this constant.
+//Don't forget to fill this constant.
 const val RESULT_EXAMPLE_PART_ONE = 0
 const val RESULT_EXAMPLE_PART_TWO = 0
-const val VALUE_OF_THE_DAY = "Day"
-const val VALUE_OF_THE_DAY_EXAMPLE = "Day_test"
+const val VALUE_OF_THE_DAY = 0
 
 fun main() {
 
     fun part1(input: List<String>): Int {
+        var result = 0
 
-        return 0
+        return result
     }
 
     fun part2(input: List<String>): Int {
+        var result = 0
 
-        return 0
+        return result
     }
 
-    val inputRead = readInput(VALUE_OF_THE_DAY)
-    val inputReadTest = readInput(VALUE_OF_THE_DAY_EXAMPLE)
+    val inputRead = readDayInput(VALUE_OF_THE_DAY)
+    val inputReadTest = readDayInput(VALUE_OF_THE_DAY, true)
 
     if (part1(inputReadTest) == RESULT_EXAMPLE_PART_ONE) {
         println("${part1(inputRead)}")
