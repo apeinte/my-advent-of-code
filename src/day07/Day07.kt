@@ -1,12 +1,29 @@
+package day07
+
+import readDayInput
+
 //Don't forget to fill this constant.
-const val RESULT_EXAMPLE_PART_ONE = 0
+const val RESULT_EXAMPLE_PART_ONE = 95437
 const val RESULT_EXAMPLE_PART_TWO = 0
-const val VALUE_OF_THE_DAY = 0
+const val VALUE_OF_THE_DAY = 7
 
 fun main() {
 
     fun part1(input: List<String>): Int {
         var result = 0
+        var lastCommand = ""
+
+        input.forEach {
+            if (it.contains("$")) {
+                // It's a command
+                lastCommand = it
+            } else {
+                // It's result of command
+                if (lastCommand.contains("ls")) {
+
+                }
+            }
+        }
 
         return result
     }
