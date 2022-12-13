@@ -17,7 +17,7 @@ fun main() {
     fun partOne(input: List<String>): Int {
         var result = 0
         var numberOfAnomaly = 0
-        // step 1 : loop the day03.day04.day05.main list
+        // step 1 : loop the main list
         input.forEach { rucksack ->
             // step 2 : split the list in two list
             val listOfItems = rucksack.split("")
